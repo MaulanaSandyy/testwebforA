@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akarii</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ff6ac1; /* Pink background */
+        }
+
+        .loading-container {
+            text-align: center;
+            background-color: #ff6ac1;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .loading-text {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .loading-gif {
+            width: 100%;
+            max-width: 400px; /* Make the GIF larger but responsive */
+            height: auto;
+        }
+
+        /* For better responsiveness on smaller devices */
+        @media (max-width: 600px) {
+            .loading-text {
+                font-size: 1.5em;
+            }
+
+            .loading-gif {
+                max-width: 300px;
+            }
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            window.location.href = "1.html"; // Replace with the target URL
+        }, 5000); // Redirect after 5 seconds
+    </script>
+</head>
+<body>
+
+    <div class="loading-container">
+        <div class="loading-text">I LOVE YOU MYLOVEE AKARII</div>
+        <img src="assets/bubududuchristmas.gif" alt="Loading" class="loading-gif"> <!-- Replace with your GIF URL -->
+    </div>
+
+</body>
+</html>
