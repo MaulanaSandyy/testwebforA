@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background: #ff6ac1;
+            border-radius: 0;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .button-container {
+            position: relative;
+            margin-top: 20px;
+            height: 200px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .button-container button {
+            font-size: 1em;
+            padding: 10px 20px;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            transition: all 0.2s;
+        }
+
+        .button-yes {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #28a745;
+        }
+
+        .button-no {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        let yesClickCount = 0;
+
+        function moveButton(button) {
+            const container = document.querySelector('.button-container');
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+            const buttonWidth = button.offsetWidth;
+            const buttonHeight = button.offsetHeight;
+
+            const newX = Math.random() * (containerWidth - buttonWidth);
+            const newY = Math.random() * (containerHeight - buttonHeight);
+
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+            button.style.transform = "translate(0, 0)";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttonYes = document.querySelector('.button-yes');
+            const buttonNo = document.querySelector('.button-no');
+
+            buttonYes.addEventListener('click', () => {
+                yesClickCount++;
+                if (yesClickCount < 5) {
+                    moveButton(buttonYes);
+                } else {
+                    window.location.href = "3.html"; // Replace with the target URL
+                }
+            });
+
+            buttonNo.addEventListener('click', () => moveButton(buttonNo));
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="question">Are you sure?</div>
+        <div class="gif-container">
+            <img src="assets/dudurusure.gif" alt="Motivational GIF">
+        </div>
+        <div class="button-container">
+            <button class="button-yes">Yes</button>
+            <button class="button-no">No</button>
+        </div>
+    </div>
+</body>
+</html>
